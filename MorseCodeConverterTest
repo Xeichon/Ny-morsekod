@@ -1,0 +1,47 @@
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+public class MorseCodeConverterTest {
+
+    @Test
+    public void testMorseToEnglish_basic() {
+        String morseCode = ".- / -... / -.-.";
+        String expectedEnglishText = "ABC";
+        assertEquals(expectedEnglishText, MorseCodeConverter.morseToEnglish(morseCode));
+    }
+
+    @Test
+    public void testMorseToEnglish_withUnknownCharacters() {
+        String morseCode = ".- / .. / .----";
+        String expectedEnglishText = "AI";
+        assertEquals(expectedEnglishText, MorseCodeConverter.morseToEnglish(morseCode));
+    }
+
+    @Test
+    public void testMorseToEnglish_emptyInput() {
+        String morseCode = "";
+        String expectedEnglishText = "";
+        assertEquals(expectedEnglishText, MorseCodeConverter.morseToEnglish(morseCode));
+    }
+
+    @Test
+    public void testEnglishToMorse_basic() {
+        String englishText = "HELLO";
+        String expectedMorseCode = ".... . .-.. .-.. ---";
+        assertEquals(expectedMorseCode, MorseCodeConverter.englishToMorse(englishText));
+    }
+
+    @Test
+    public void testEnglishToMorse_withUnknownCharacters() {
+        String englishText = "HELLO 123";
+        String expectedMorseCode = ".... . .-.. .-.. ---   ";
+        assertEquals(expectedMorseCode, MorseCodeConverter.englishToMorse(englishText));
+    }
+
+    @Test
+    public void testEnglishToMorse_emptyInput() {
+        String englishText = "";
+        String expectedMorseCode = "";
+        assertEquals(expectedMorseCode, MorseCodeConverter.englishToMorse(englishText));
+    }
+}
